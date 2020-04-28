@@ -39,7 +39,7 @@ await intRepository.SaveAsync();
 
 ## Dependency injection
 
-If you're using ASP.NET Core and want to inject your repositories, just call `services.AddJStore()` in your startup method. Now you can inject any repository you please!
+If you're using ASP.NET Core and want to inject your repositories, just call `services.AddJStore();` in your startup method. Now you can inject any repository you please!
 
 ## Notes
 
