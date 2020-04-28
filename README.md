@@ -43,4 +43,4 @@ If you're using ASP.NET Core and want to inject your repositories, just call `se
 
 ## Notes
 
-The performance of JStore improved. However, since it is not intended to be used as long-term or production storage, I am leaving it as-is for now. It serves its purpose, which is to provide persistent storage for a small data-set when you are in the prototyping stage and just want persistent storage for testing without all the overhead of using, say, a SQL database.
+The performance of JStore could be improved. However, since it is not intended to be used as long-term or production storage, I am leaving it as-is for now. It serves its purpose, which is to provide persistent storage for a small data-set when you are in the prototyping stage and just want persistent storage for testing without all the overhead of using, say, a SQL database.
