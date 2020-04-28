@@ -8,7 +8,6 @@ All you need to use JStore is a `Repository`.
 using JStore;
 
 var intRepository = new Repository<int>();
-await intRepository.InitializeAsync();
 ```
 
 And that quickly, you're up and running!
