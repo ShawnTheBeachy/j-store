@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+    <PackageId>JStore</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>ShawnTheBeachy</Authors>
+		<PackageDescription>A JSON storage plugin to make temporary development storage easier.</PackageDescription>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="3.1.3" />
+	</ItemGroup>
+
+</Project>
