@@ -30,6 +30,18 @@ namespace JStore
 			{
 				File.WriteAllText("store.json", "{}");
 			}
+
+			var jsonElement = GetJsonElement();
+
+			if (jsonElement != null)
+			{
+				Items = JsonSerializer.Deserialize<List<T>>(jsonElement.Value.GetRawText(), _options);
+			}
+
+			else
+			{
+				Items = new List<T>();
+			}
 		}
 
 		private async Task<byte[]> GetJsonBytesAsync()
@@ -37,9 +49,9 @@ namespace JStore
 			return await File.ReadAllBytesAsync("store.json");
 		}
 
-		private async Task<JsonElement?> GetJsonElementAsync()
+		private JsonElement? GetJsonElement()
 		{
-			using var jsonDoc = await JsonDocument.ParseAsync(await GetJsonStreamAsync());
+			using var jsonDoc = JsonDocument.Parse(File.ReadAllText("store.json"));
 			var root = jsonDoc.RootElement;
 
 			if (!root.TryGetProperty(SetName, out var setElement))
@@ -56,21 +68,6 @@ namespace JStore
 			await stream.WriteAsync(await GetJsonBytesAsync());
 			stream.Seek(0, SeekOrigin.Begin);
 			return stream;
-		}
-
-		public async Task InitializeAsync()
-		{
-			var jsonElement = await GetJsonElementAsync();
-
-			if (jsonElement != null)
-			{
-				Items = JsonSerializer.Deserialize<List<T>>(jsonElement.Value.GetRawText(), _options);
-			}
-
-			else
-			{
-				Items = new List<T>();
-			}
 		}
 
 		public async Task SaveAsync()

@@ -20,7 +20,6 @@ namespace JStore.ConsoleApp
 			services.AddJStore();
 			var serviceProvider = services.BuildServiceProvider();
 			_fruitRepo = serviceProvider.GetRequiredService<Repository<Fruit>>();
-			await _fruitRepo.InitializeAsync();
 
 			ShowHelp();
 			await LoopAsync();
